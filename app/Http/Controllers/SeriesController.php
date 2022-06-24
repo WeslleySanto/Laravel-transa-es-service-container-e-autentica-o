@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Episode;
 use App\Serie;
-use Illuminate\Http\Request;
-use App\Http\Requests\SeriesFormRequest;
 use App\Season;
+use App\Episode;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\SeriesFormRequest;
 use App\Http\Repositories\SeriesRepository;
 
 class SeriesController extends Controller
 {   
-    private $repository;
+    protected $repository;
 
-    public function __constructor(SeriesRepository $repository) {
+    public function __construct(SeriesRepository $repository) {
         $this->repository = $repository;
     }
 

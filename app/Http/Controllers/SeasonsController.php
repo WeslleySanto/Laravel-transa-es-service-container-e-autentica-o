@@ -8,7 +8,6 @@ class SeasonsController extends Controller
 {
     public function index(Serie $series)
     {   
-        
         $seasons = $series->temporadas()->with('episodes')->get();
         // dd($seasons);
         return view('seasons.index')

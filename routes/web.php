@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +25,6 @@ Route::get('/series/{series}/editar', 'SeriesController@edit')->name('form_edita
 Route::put('/series/{series}/editar', 'SeriesController@update')->name('atualizar_serie');
 
 Route::get('series/{series}/seasons', 'SeasonsController@index')->name('listar_temporadas');
+
+Route::get('seasons/{season}/episodes', 'EpisodesController@index')->name('listar_episodes');
+Route::post('seasons/{season}/episodes', 'EpisodesController@update')->name('atualizar_episodes');

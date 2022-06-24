@@ -25,6 +25,12 @@
             </div>
         @endif
 
+        @if(!empty($mensagem))
+            <div class="alert alert-success">
+                {{ $mensagem }}
+            </div>
+        @endif
+
         @yield('conteudo')
     </div>
 </body>
