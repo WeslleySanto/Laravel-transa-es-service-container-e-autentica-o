@@ -11,9 +11,10 @@ Séries
 <ul class="list-group">
     @foreach($series as $serie)
     <li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="{{route('listar_temporadas', $serie->id)}}" >
+        @auth <a href="{{route('listar_temporadas', $serie->id)}}" > @endauth
             {{$serie->nome}}
-        </a>
+        @auth</a>@endauth
+        @auth
         <span class="d-flex">
             <a href="{{route('form_editar', $serie->id)}}" class="btn btn-primary btn-sm">
                 <button class="btn btn-info">E</button>
@@ -24,6 +25,7 @@ Séries
                 <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
             </form>
         </span>
+        @endauth
     </li>
     @endforeach
 </ul>

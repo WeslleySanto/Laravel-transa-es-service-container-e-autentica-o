@@ -7,8 +7,10 @@ use App\Season;
 use App\Episode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SeriesFormRequest;
 use App\Http\Repositories\SeriesRepository;
+use Illuminate\Auth\AuthenticationException;
 
 class SeriesController extends Controller
 {   
@@ -19,6 +21,10 @@ class SeriesController extends Controller
     }
 
     public function index(Request $request) {
+
+        if (!Auth::check()) {
+            throw new AuthenticationException();
+        }
         $series = Serie::query()->orderBy('nome')->get();
 
         $mensagem = $request->session()->get('mensagem');
